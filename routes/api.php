@@ -17,5 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route::get('chats', ['uses' => 'ChatController@index']);
+Route::get('chats', ['middleware' => 'auth:api', 'uses' => 'ChatController@index']);
 
-Route::resource('chats', 'ChatController');
+//Route::resource('chats', 'ChatController');
+
